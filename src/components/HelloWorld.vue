@@ -8,11 +8,12 @@ defineProps({
 
 const count = ref(0)
 
-const message = ref("Hello Word")
+const message = ref("Hello Quasar!")
 
 const hi = () => {
   sayHello().then(res=>{
-    console.log(res)
+    const { data } = res
+    message.value = data
   })
 }
 
