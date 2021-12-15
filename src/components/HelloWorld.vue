@@ -1,17 +1,29 @@
 <script setup>
 import { ref } from 'vue'
+import {sayHello} from "../api/hello";
 
 defineProps({
   msg: String
 })
 
 const count = ref(0)
+
+const message = ref("Hello Word")
+
+const hi = () => {
+  sayHello().then(res=>{
+    console.log(res)
+  })
+}
+
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ message }}</h1>
 
   <q-btn color="primary" @click="count++">count is: {{ count }}</q-btn>
+  <br><br>
+  <q-btn color="info" @click="hi">请求数据</q-btn>
 </template>
 
 <style scoped>
